@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Portfolio</title>
-    <link rel="icon" href="rv.png.png">
+    <link rel="icon" href="rv.png">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         * {
@@ -15,7 +15,7 @@
         body {
             font-family: 'Poppins', 'Segoe UI', sans-serif;
             background: linear-gradient(135deg, #0f0c29 0%, #302b63 50%, #24243e 100%);
-            color: #hidden;
+            color: #e0e0e0;
             position: relative;
         }
 
@@ -142,9 +142,8 @@
         .logo-img{
             width: 50px;
             height: 50px;
-    height:70;
-    object-fit:contain;
-}
+            object-fit: contain;
+        }
 
         @keyframes logoGlow {
             0%, 100% { text-shadow: 0 0 20px rgba(123, 81, 255, 0.5); }
@@ -673,7 +672,10 @@
 
         .skill-item {
             margin-bottom: 1.5rem;
-            last-child: { margin-bottom: 0; }
+        }
+
+        .skill-item:last-child {
+            margin-bottom: 0;
         }
 
         .skill-name {
@@ -753,7 +755,7 @@
         }
 
         .project-card {
-            group background: linear-gradient(135deg, rgba(123, 81, 255, 0.08), rgba(70, 200, 255, 0.08));
+            background: linear-gradient(135deg, rgba(123, 81, 255, 0.08), rgba(70, 200, 255, 0.08));
             border: 1px solid rgba(70, 200, 255, 0.2);
             border-radius: 15px;
             overflow: hidden;
@@ -953,7 +955,7 @@
             overflow: hidden;
             aspect-ratio: 1;
             cursor: pointer;
-            group background: linear-gradient(135deg, rgba(123, 81, 255, 0.2), rgba(70, 200, 255, 0.2));
+            background: linear-gradient(135deg, rgba(123, 81, 255, 0.2), rgba(70, 200, 255, 0.2));
             border: 2px solid rgba(70, 200, 255, 0.2);
             transition: all 0.3s;
         }
@@ -1173,7 +1175,7 @@
     <nav id="navbar">
         <div class="nav-container">
             <div class="logo">
-                 <img src="rv.png.png" alt="Logo" class="logo-img"> Portfolio
+                 <img src="rv.png" alt="Logo" class="logo-img"> Portfolio
             </div>
             <ul class="nav-links" id="navLinks">
                 <li><a href="#home" class="nav-link active">Home</a></li>
@@ -1490,10 +1492,10 @@
         <h2 class="section-title"><span>My Projects</span></h2>
 
         <div class="filter-buttons">
-            <button class="filter-btn active" onclick="filterProjects('all')">All Projects</button>
-            <button class="filter-btn" onclick="filterProjects('fullstack')">Full Stack</button>
-            <button class="filter-btn" onclick="filterProjects('frontend')">Frontend</button>
-            <button class="filter-btn" onclick="filterProjects('backend')">Backend</button>
+            <button class="filter-btn active" onclick="filterProjects('all', this)">All Projects</button>
+            <button class="filter-btn" onclick="filterProjects('fullstack', this)">Full Stack</button>
+            <button class="filter-btn" onclick="filterProjects('frontend', this)">Frontend</button>
+            <button class="filter-btn" onclick="filterProjects('backend', this)">Backend</button>
         </div>
 
         <div class="projects-grid" id="projectsGrid">
@@ -1656,13 +1658,13 @@
         <p>I'm always open to new opportunities, collaborations, and interesting conversations. Feel free to reach out!</p>
 
         <div class="contact-buttons">
-            <a href="mailto:your@email.com" class="btn btn-primary contact-button">
+            <a href="mailto:ravikum3221@gmail.com" class="btn btn-primary contact-button">
                 <i class="fas fa-envelope"></i> Send Email
             </a>
             <a href="https://www.linkedin.com/in/ravi-kumar-76281537a?utm_source=share_via&utm_content=profile&utm_medium=member_android" class="btn btn-secondary contact-button">
                 <i class="fab fa-linkedin"></i> LinkedIn
             </a>
-            <a href="https://github.com/yourprofile" class="btn btn-secondary contact-button">
+            <a href="https://github.com/RaviKum0.7" class="btn btn-secondary contact-button">
                 <i class="fab fa-github"></i> GitHub
             </a>
         </div>
@@ -1775,9 +1777,9 @@
             `).join('');
         }
 
-        function filterProjects(category) {
+        function filterProjects(category, clickedButton) {
             document.querySelectorAll('.filter-btn').forEach(btn => btn.classList.remove('active'));
-            event.target.classList.add('active');
+            clickedButton.classList.add('active');
             renderProjects(category);
         }
 
